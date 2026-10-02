@@ -20,12 +20,12 @@ plot = st.sidebar.button("Generate Plot")
 
 if plot:
     if selected_state == 'Overall India':
-        fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", color=primary,size=secondary, hover_name="District",mapbox_style="open-street-map",
+        fig = px.scatter_map(df, lat="Latitude", lon="Longitude", color=primary,size=secondary, hover_name="District",map_style="open-street-map",
                                     color_continuous_scale=px.colors.cyclical.IceFire, size_max=15, zoom=3)
         st.plotly_chart(fig)
     else:
         state_data = df[df['State'] == selected_state]
-        fig = px.scatter_mapbox(state_data, lat="Latitude", lon="Longitude", color=primary,size=secondary, hover_name="District",mapbox_style="open-street-map",
+        fig = px.scatter_map(state_data, lat="Latitude", lon="Longitude", color=primary,size=secondary, hover_name="District",map_style="open-street-map",
                                     color_continuous_scale=px.colors.cyclical.IceFire, size_max=15, zoom=5)
         st.plotly_chart(fig)
 
